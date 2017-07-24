@@ -3,30 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Drawing of geometrical figures.</title>
-<!--Using the loops, draw in the browser with spaces (& nbsp) and asterisks (*):
+<!--Using the loops, draw in the browser with spaces (&nbsp) and asterisks (*):
 · Rectangle.
 · Right triangle.
 · Equilateral triangle.
 · Rhombus.-->
 
     <script>
-        // Прямоугольник
+        // Rectangle
         document.write("Rectangle" + "<br>" + "<br>");
         for (var h = 0; h < 6; h++) {
             for (var w = 0; w < 14; w++) {
-                document.write("*\n"); // 1. Горизонталь по 14 звёзд в длину
-            }
-            document.write("<br>"); // 2. Перенос строки
-        }
-        document.write("<hr>");
-
-
-        // Прямоугольный треугольник (1)
-        document.write("Right triangle (bottom-up)" + "<br>" + "<br>");
-
-        var max = 8;
-        for (var h = 1; h < 9; h++) {
-            for (var w = max--; w < 9; w++) { // Выводит звезду пока есть разница между p и max, пока p удовлетворяет условию p < 9
                 document.write("*\n");
             }
             document.write("<br>");
@@ -34,32 +21,112 @@
         document.write("<hr>");
 
 
-        // Прямоугольный треугольник (2)
-        document.write("Right triangle (up-bottom)" + "<br>" + "<br>");
+        // Right triangle (1)
+        document.write("Right triangle (bottom-up, left-right)" + "<br>" + "<br>");
 
-        var min = 1;
-        var space = "&nbsp";
-        for (var h = 1; h < 9; h++) {
-            for (var w = min++; w < 9; w++) {
+        for (var h = 0; h < 8; h++) {
+            for (var w = 0; w < h + 1; w++) {
                 document.write("*\n");
             }
             document.write("<br>");
         }
         document.write("<hr>");
 
-        // Равносторонний треугольник
+
+        //// Right triangle (1.1)
+        //document.write("Right triangle (bottom-up, left-right)" + "<br>" + "<br>");
+
+        //var max = 8;
+        //for (var h = 1; h < 9; h++) {
+        //    for (var w = max--; w < 9; w++) { // Outputs a star while there is a difference between p and max, while p satisfies the condition p < 9
+        //        document.write("*\n");
+        //    }
+        //    document.write("<br>");
+        //}
+        //document.write("<hr>");
+
+
+        // Right triangle (2)
+        document.write("Right triangle (up-bottom, left-right)" + "<br>" + "<br>");
+
+        for (var h = 0; h < 8; h++) {
+            for (var w = 8; w > h; w--) {
+                document.write("*\n");
+            }
+            document.write("<br>");
+        }
+        document.write("<hr>");
+
+
+        //// Right triangle (2.1)
+        //document.write("Right triangle (up-bottom, left-right)" + "<br>" + "<br>");
+
+        //var min = 1;
+        //for (var h = 1; h < 9; h++) {
+        //    for (var w = min++; w < 9; w++) {
+        //        document.write("*\n");
+        //    }
+        //    document.write("<br>");
+        //}
+        //document.write("<hr>");
+
+
+        // Equilateral triangle
         document.write("Equilateral triangle" + "<br>" + "<br>");
 
-        var min = 1;
-        var space = "&nbsp";
-        for (var h = 1; h < 9; h++) {
-		  for (var w = 1; w < 15; w++) {
-			document.write("*\n");
-		  }
-		  document.write("<br>");
-		}
+        var line = 8; // Quantity of lines
+        var space = 7; // Quantity of gaps in the first line
+        var star = 1; // Quantity of stars in the first line
+
+        for (var h = 0; h < line; h++) {
+            for (var wsp = 0; wsp < space; wsp++) {
+                document.write("&nbsp\n");
+            }
+            for (var wst = 0; wst < star; wst++) {
+                document.write("*");
+            }
+            space -= 1;
+            star += 2;
+            document.write("<br>");
+        }
+        document.write("<hr>");
 
 
+        // Rhombus
+        document.write("Rhombus" + "<br>" + "<br>");
+
+        var line = 8; // Quantity of lines
+        var space = 7; // Quantity of gaps in the first line
+        var star = 1; // Quantity of stars in the first line
+
+        for (var h = 0; h < line; h++) {
+            for (var wsp = 0; wsp < space; wsp++) {
+                document.write("&nbsp\n");
+            }
+            for (var wst = 0; wst < star; wst++) {
+                document.write("*");
+            }
+            space -= 1;
+            star += 2;
+            document.write("<br>");
+        }
+
+        var line = 7; // Quantity of lines after equator
+        var space = 1; // Quantity of gaps in the last line
+        var star = 13; // Quantity of stars in the ninth line
+
+        for (var h = 0; h < line; h++) {
+            for (var wsp = 0; wsp < space; wsp++) {
+                document.write("&nbsp\n");
+            }
+            for (var wst = 0; wst < star; wst++) {
+                document.write("*");
+            }
+            space += 1;
+            star -= 2;
+            document.write("<br>");
+        }
+        document.write("<hr>");
     </script>
 </head>
 <body>
